@@ -1,7 +1,5 @@
 #!/bin/bash
 
-# A change was made here
-
 # Ubuntu Server Config
 # By Tyler Gray
 
@@ -49,12 +47,12 @@ echo "===================================================="
 sleep 2
 sudo apt install fail2ban
 sudo systemctl enable fail2ban
-sudo cp /etc/fail2ban/jail.conf /etc/fail2ban/jail.local
 cd /etc/fail2ban
+sudo cp /etc/fail2ban/jail.conf /etc/fail2ban/jail.local
 # Changes default bantime time from 10 miunutes, to 60 minutes
-sed -i 's/bantime  = 10m/bantime  = 60m/' jail.local
+sudo sed -i 's/bantime  = 10m/bantime  = 60m/' jail.conf
 # Changes default maximum login retries from 5 to 3 before initiating bantime seen above
-sed -i 's/maxtrey = 5/maxretry = 3' jail.local
+sed -i 's/^maxretry = 5$/maxretry = 3/' jail.local
 sudo systemctl restart fail2ban
 
 
