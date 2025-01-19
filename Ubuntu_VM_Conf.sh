@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# A change was made here
+
 # Ubuntu Server Config
 # By Tyler Gray
 
