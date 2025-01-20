@@ -68,7 +68,7 @@ if [[ -z "$username" ]]; then
     exit 1
 fi
 # (Optional) Ramdomly generates password for newly created user
-read -p "Would you like to assign $username a randomly generated password? (y/n)" pw_response
+read -p "Would you like to assign $username a randomly generated password? (y/n):" pw_response
 if [["$pw_response" =~ ^[Yy]$ ]]; then
     password=$(openssl rand -base64 16)
     echo -e "$password\n$password" | sudo passwd $username
@@ -119,11 +119,6 @@ AllowTcpForwarding no
 PasswordAuthentication no
 X11Forwarding no
 PermitRootLogin no
-RSAAuthentication yes
-PubkeyAuthentication yes
-AuthorizedKeyFile	.ssh/authorized_keys
-ChallengeResponseAuthenticaiton no
-UsePAM yes
 "
 # Append the configuration block to /etc/ssh/sshd_config
 echo "$config_block" >> /etc/ssh/sshd_config
