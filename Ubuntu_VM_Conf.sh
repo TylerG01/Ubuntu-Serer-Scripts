@@ -21,7 +21,7 @@ echo "===================================================="
 echo "   ===== Updating & Upgrading New Installation ==== "
 echo "===================================================="
 sleep 2
-sudo sudo apt-get update && sudo apt-get upgrade -y
+sudo apt-get update && sudo apt-get upgrade -y
 sudo apt autoremove -y
 
 
@@ -133,7 +133,7 @@ sleep 2
 
 
 # Add a cron job to update and upgrade the system every morning at 5 AM
-(crontab -l 2>/dev/null; echo "0 5 * * * apt update && apt upgrade -y") | crontab -
+(crontab -l 2>/dev/null; echo "0 5 * * * sudo apt update && sudo apt upgrade -y") | crontab -
 echo "======================================================================"
 echo "Cron job added to update and upgrade the system every morning at 5 AM "
 echo "======================================================================"
