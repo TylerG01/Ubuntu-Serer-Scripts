@@ -52,7 +52,7 @@ sudo cp /etc/fail2ban/jail.conf /etc/fail2ban/jail.local
 # Changes default bantime time from 10 miunutes, to 60 minutes
 sudo sed -i 's/bantime  = 10m/bantime  = 60m/' jail.local
 # Changes default maximum login retries from 5 to 3 before initiating bantime seen above
-sed -i 's/^maxretry = 5$/maxretry = 3/' jail.local
+sudo sed -i 's/^maxretry = 5$/maxretry = 3/' jail.local
 sudo systemctl restart fail2ban
 
 
@@ -69,7 +69,7 @@ if [[ -z "$username" ]]; then
 fi
 # (Optional) Ramdomly generates password for newly created user
 read -p "Would you like to assign $username a randomly generated password? (y/n):" pw_response
-if [["$pw_response" =~ ^[Yy]$ ]]; then
+if [[ "$pw_response" =~ ^[Yy]$ ]]; then
     password=$(openssl rand -base64 16)
     echo -e "$password\n$password" | sudo passwd $username
     # Displays newly created user pasword in the terminal until you press Enter
