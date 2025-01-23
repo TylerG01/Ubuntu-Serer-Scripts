@@ -1,14 +1,14 @@
 #!/bin/bash
 
-# Ubuntu Server Config
-# By Tyler Gray
+# Configure Ubuntu as an SFTP server with fail2ban enabled
+# By Tyler G
 
 # This script must be run as root
 # cd your/file/directory
 # sudo chmod +x Ubuntu_VM_Conf.sh
 # sudo ./Ubuntu_VM_Conf.sh
 
-# When executed, this script performs the following in order
+# When executed, this script performs the following in order:
 #	1). Update, Upgrades and Autoremoves any outdated packages
 #	2). Detects OS then removes telementry systems by Canonical IF the system is Ubuntu
 #	3). Installs and fully configures fail2ban with a 3 attempt limit before a 1 hour timeout
